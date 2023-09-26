@@ -9,6 +9,7 @@ services:
 
   node-app:
     build: .
+    image: jurejukic/node-docker-node-app:latest
     volumes:
       - ./:/app
       - /app/node_modules
