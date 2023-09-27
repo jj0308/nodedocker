@@ -8,6 +8,14 @@ services:
       - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf
 
   node-app:
+    #ovo je za docker swarm
+    deploy:
+      replicas: 2
+      restart_policy:
+        condition: any
+      update_config:
+        parallelism: 2
+        delay: 5s
     build: .
     image: jurejukic/node-docker-node-app:latest
     volumes:
